@@ -1,0 +1,31 @@
+Q1. As of my last knowledge update in September 2021, Python 3.X did not introduce specific new constraints for user-defined exceptions. However, Python 3 introduced the `__context__` and `__cause__` attributes for exceptions to improve exception chaining and context management. These attributes can be used to provide additional information about exceptions and their relationships in the exception hierarchy.
+
+Q2. Class-based exceptions that have been raised are matched to handlers based on their inheritance hierarchy. Python traverses the exception hierarchy from the most specific (derived) exception classes to the least specific (base) classes. When an exception is raised, Python checks for the first matching `except` block that can handle the exception based on the exception class or a tuple of exception classes specified in the `except` statement.
+
+Q3. Two methods for attaching context information to exception artifacts are:
+
+   a. Using the `with` statement and context managers: You can use the `with` statement along with context managers to attach context information to exceptions. Context managers, implemented using `__enter__` and `__exit__` methods, allow you to set up and tear down resources or provide context information when an exception occurs.
+
+   b. Using custom exception classes: You can create custom exception classes that include additional attributes to hold context information. These attributes can be set when the exception is raised and accessed when handling the exception to provide more information about the error.
+
+Q4. Two methods for specifying the text of an exception object's error message are:
+
+   a. Pass a string argument to the exception constructor: When raising an exception, you can pass a string argument that serves as the error message. For example:
+   
+      ```python
+      raise ValueError("This is a custom error message.")
+      ```
+
+   b. Define a custom `__str__` method in the exception class: If you create custom exception classes, you can define a `__str__` method within the class to customize the error message that will be displayed when the exception is printed. This allows you to provide more detailed information about the exception.
+
+Q5. String-based exceptions are no longer used in modern Python programming for several reasons:
+
+   a. Lack of Information: String-based exceptions provide limited information about the error, making it challenging to diagnose and handle exceptions effectively.
+
+   b. Lack of Exception Hierarchy: String-based exceptions don't support the concept of an exception hierarchy, making it difficult to handle exceptions at different levels of specificity.
+
+   c. Python 2 Compatibility: Python 2 used string-based exceptions, but Python 3 introduced class-based exceptions, which offer more structure and functionality. Transitioning to class-based exceptions improved code organization and readability.
+
+   d. Customization: Class-based exceptions allow you to define custom exception classes with additional attributes and methods, making it easier to provide context and handle exceptions more effectively.
+
+   e. Standardization: Class-based exceptions follow a standardized pattern, making it easier for developers to understand and work with exceptions in Python, as opposed to arbitrary strings.
